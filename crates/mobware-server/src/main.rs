@@ -1,7 +1,7 @@
-use log;
-use actix_web::{get, App, HttpServer, Responder};
 use actix::{Actor, Arbiter};
-use mobware_core::{Orchestrator, Developer};
+use actix_web::{get, App, HttpServer, Responder};
+use log;
+use mobware_core::{Developer, Orchestrator};
 
 #[get("/alive")]
 async fn alive() -> impl Responder {
@@ -20,12 +20,10 @@ async fn main() -> std::io::Result<()> {
         Orchestrator::new("Alice".to_string()).start();
     });
 
-    let result = HttpServer::new(|| {
-        App::new().service(alive)
-    })
-    .bind(("127.0.0.1", 8080))?
-    .run()
-    .await;
+    let result = HttpServer::new(|| App::new().service(alive))
+        .bind(("127.0.0.1", 8080))?
+        .run()
+        .await;
     log::info!("Stopping server");
     result
 }

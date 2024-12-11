@@ -1,5 +1,5 @@
-use log;
 use actix::prelude::*;
+use log;
 
 pub struct Orchestrator {
     pub name: String,
@@ -15,8 +15,6 @@ impl Actor for Orchestrator {
 
 impl Orchestrator {
     pub fn new(name: String) -> Orchestrator {
-        Orchestrator {
-            name
-        }
+        Orchestrator { name }
     }
 }
