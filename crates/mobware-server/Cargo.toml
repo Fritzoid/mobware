@@ -1,0 +1,10 @@
+[package]
+name = "mobware-server"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+mobware-core = { path = "../mobware-core" }
+actix = "0.13.5"
+actix-web = "4.9.0"
+log = "0.4.22"
