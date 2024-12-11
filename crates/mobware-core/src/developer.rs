@@ -1,5 +1,5 @@
-use log;
 use actix::prelude::*;
+use log;
 
 pub struct Developer {
     pub name: String,
@@ -15,8 +15,6 @@ impl Actor for Developer {
 
 impl Developer {
     pub fn new(name: String) -> Developer {
-        Developer {
-            name
-        }
+        Developer { name }
     }
 }
