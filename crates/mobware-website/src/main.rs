@@ -1,23 +1,28 @@
 use leptos::prelude::*;
 use leptos::mount::mount_to_body;
 
+mod header;
+use header::Header;
+
 #[component]
 fn App() -> impl IntoView {
-    let (count, set_count) = signal(0);
 
     view! {
-        <button
-            on:click=move |_| set_count.set(3)
-        >
-            "Click me: "
-            {count}
-        </button>
-        <p>
-            "Double count: "
-            {move || count.get() * 2}
-        </p>
+        <div>
+            <Header />
+            <main>
+                <h2>
+                    "Welcome to Mobware"
+                </h2>
+                <p>
+                    "Mobware is a software development company that specializes in mobile applications."
+                </p>
+            </main>
+        </div>
     }
 }
+
+
 
 fn main() {
     mount_to_body(App);
