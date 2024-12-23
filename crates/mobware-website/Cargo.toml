@@ -5,3 +5,4 @@ edition = "2021"
 
 [dependencies]
 leptos = {version = "0.7.0" , features = ["csr"]}
+mobware-ui-models = {version = "0.1.0", path = "../mobware-ui-models"}
